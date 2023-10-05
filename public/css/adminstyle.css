@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+
+.navbar-brand {
+    font-family: 'Chewy', cursive;    
+    color: #FFD700 !important;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #00FFFF !important;
+}
+  
+
+tr:not(.home) {
+    cursor: pointer;
+}
+
+
+.ui-state-highlight {
+    border: 1px dashed #ccc;
+}
+
+
+#imgPreview {
+    margin: 20px;
+}
+
+
+#noimage {
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    padding-top: 5px;
+    width: 110px;
+    height: 90px;
+}
+
+
+ul.gallery {
+    padding: 0;
+}
+
+
+ul.gallery li:first-child {
+    margin-left: 0;
+}
+
+
+ul.gallery li {
+    margin: 20px;
+    display: inline-block;
+    list-style: none;
+}
+
+
+table.alignmiddle td {
+    vertical-align: middle !important;
+}
+
+
+a.btn, button.btn {
+    padding-top: 9px;
+}
+
+
+a.btn {
+    padding-bottom: 10px;
+}
+
+nav {
+    padding: 20px 0;
+    margin-bottom: 50px;
+}

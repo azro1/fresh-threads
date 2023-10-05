@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.navbar-brand {
+    font-family: 'Chewy', cursive;    
+    color: #FFD700 !important;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #00FFFF !important;
+}
+
+
+img.pimage {
+    width: 150px;
+}
+
+
+a.pa {
+    display: inline-block;
+}
+
+
+.row .products .p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.row.products h3, h4, .vd {
+    padding-left: 25px;
+}
+
+
+.row.products h3 {
+    margin-top: 5px;
+}
+
+
+img.spi {
+    width: 100%;
+}
+
+
+ul.gallery li {
+    display: inline-block;
+    margin: 20px;
+    list-style: none;
+}
+
+
+img.cpi {
+    width: 100px;
+    text-align: center;
+}
+
+
+table.alignmiddle td {
+    vertical-align: middle !important;
+    
+}
+
+
+.btn, .buynow, .clearcart {
+    padding-top: 9px;
+}
+
+
+.pp {
+    position: absolute;
+    left: -3000px;
+}
+
+
+.ajaxbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255, .8);
+    z-index: 2;
+    display: none;
+}
+
+
+.ajaxinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+nav {
+    padding: 20px 0;
+    margin-bottom: 50px;
+}
