@@ -35,7 +35,8 @@ router.post('/register', (req, res) => {
 
     // validate fields in register.ejs form
     req.checkBody('name', 'Name is required!').notEmpty();
-    req.checkBody('email', 'Email is required!').isEmail();
+    req.checkBody('email', 'Email is required!').notEmpty();
+    req.checkBody('email', 'Email is not valid!').isEmail();
     req.checkBody('username', 'Username is required!').notEmpty();
     req.checkBody('password', 'Password is required!').notEmpty();
     req.checkBody('password1', 'Passwords do not match!').equals(password);
@@ -95,7 +96,7 @@ router.post('/register', (req, res) => {
 router.get('/login', (req, res) => {
 
     if (res.locals.user) {
-        res.redirect('/');
+        return res.redirect('/');
     }
 
     res.render('login', {

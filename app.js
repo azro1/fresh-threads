@@ -3,14 +3,26 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const mongoDbSession = require('connect-mongodb-session')(session);
 const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
 const passport = require('passport');
 require('dotenv').config()
 
 
+
+
+// Get Page Model
+const Page = require('./models/page');
+// Get Category Model
+const Category = require('./models/category');
+
+
+
+
 // start server
 let PORT = process.env.PORT || 3000;
+
 
 
 // Init app
@@ -20,16 +32,44 @@ const app = express();
 
 // Connect to db
 mongoose.set('useFindAndModify', false);
-mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnifiedTopology: true});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-    console.log('..connected to mongodb');
-    const server = app.listen(PORT, () => {
-      console.log('Server started on port ' + PORT);
-    })
-});
+mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
+.then((result) => {
+  console.log('..connected to mongodb');
+  app.listen(PORT, () => {
+    console.log('Server started on port ' + PORT);
 
+    if (result) {
+      // Get all pages to pass to header.ejs
+      Page.find({})
+        .sort({ sorting: 1 })
+        .exec((err, pages) => {
+          if (err) {
+            console.log(err);
+          } else {
+            app.locals.pages = pages;
+          }
+        });
+
+      // Get all categories to pass to header.ejs
+      Category.find((err, categories) => {
+        if (err) {
+          console.log(err);
+        } else {
+          app.locals.categories = categories;
+        }
+      });
+    }
+  });
+})
+.catch((err) => console.log(err))
+
+
+
+
+const store = new mongoDbSession({
+  uri: process.env.MONGO_ATLAS_STRING,
+  collection: 'gfCartSessions'
+})
 
 
 
@@ -46,34 +86,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set global errors variable
 app.locals.errors = null;
-
-
-
-// Get Page Model
-const Page = require('./models/page');
-
-// Get all pages to pass to header.ejs
-Page.find({}).sort({ sorting: 1}).exec((err, pages) => {
-    if (err) {
-        console.log(err);
-    } else {
-        app.locals.pages = pages;
-      }
-});
-
-
-
-// Get Category Model
-const Category = require('./models/category');
-
-// Get all categories to pass to header.ejs
-Category.find((err, categories) => {
-    if (err) {
-        console.log(err);
-    } else {
-        app.locals.categories = categories;
-      }
-});
 
 
 
@@ -97,8 +109,13 @@ app.use(session({
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true,
-//cookie: { secure: true }
+  store: store
 }));
+
+// app.use((req, res, next) => {
+//   console.log(req.session.id)
+//   next()
+// })
 
 
 

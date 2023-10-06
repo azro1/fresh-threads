@@ -12,7 +12,7 @@ const Page = require('../models/page');
 * GET / 
 */
 router.get('/', (req, res) => {
-    
+
     Page.findOne({slug: 'home'}, (err, page) => {
         if (err) 
             console.log(err);
