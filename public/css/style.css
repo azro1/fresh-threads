@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -7,16 +8,19 @@
 
 
 .navbar-brand {
-    font-family: 'Chewy', cursive;    
-    color: #FFD700 !important;
+    font-family: 'Joti One', cursive;
+    color: #FF1493 !important;
     font-size: 6rem;
     font-weight: 700;
-    margin-right: 20px;
+    line-height: 0.3;
 }
 
 
-.navbar-inverse .navbar-nav li a:hover {
-    color: #00FFFF !important;
+.navbar-header img {
+    width: 2.5rem;
+    margin-right: 20px;
+    margin-left: -12px;
+   
 }
 
 
