@@ -31,9 +31,9 @@ a.pa {
 }
 
 
-.row.products h3, h4, .vd {
+/* .row.products h3, h4, .vd {
     padding-left: 25px;
-}
+} */
 
 
 .row.products h3 {
@@ -45,6 +45,12 @@ img.spi {
     width: 100%;
 }
 
+
+ul.gallery {
+    padding: 0;
+    margin-inline-start: -20px;
+    margin-block-start: 1.5em;
+}
 
 ul.gallery li {
     display: inline-block;
