@@ -107,15 +107,10 @@ app.use(bodyParser.json());
 // Express Session middleware
 app.use(session({
   secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   store: store
 }));
-
-// app.use((req, res, next) => {
-//   console.log(req.session.id)
-//   next()
-// })
 
 
 
