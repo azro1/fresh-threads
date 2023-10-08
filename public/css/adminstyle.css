@@ -25,11 +25,25 @@ tr:not(.home) {
 }
 
 
+.table-container {
+    overflow-x: auto;
+}
+
+
+.table-container table tr th {
+    white-space: nowrap;
+}
+
+
+table.alignmiddle td {
+    vertical-align: middle !important;
+}
+
+
 #noimage {
     image-rendering: auto;
     image-rendering: crisp-edges;
     padding-top: 5px;
-    width: 110px;
     height: 90px;
 }
 
@@ -48,11 +62,6 @@ ul.gallery li {
     margin: 20px;
     display: inline-block;
     list-style: none;
-}
-
-
-table.alignmiddle td {
-    vertical-align: middle !important;
 }
 
 
