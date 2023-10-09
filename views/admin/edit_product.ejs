@@ -25,10 +25,7 @@
      <select name="category" class="form-control">
          <% categories.forEach(function(cat) { %>
             <option value="<%= cat.slug %>">
-              <% if (cat.slug == category) { %>
-                selected = "selected"
-                <% } %>
-                <%= cat.title %>
+              <%= cat.title %>
             </option>
          <% }); %>
      </select>
@@ -66,7 +63,6 @@
   <button class="btn btn-default">Submit</button>
     
 </form>
-
 
 
 <hr>

@@ -290,7 +290,7 @@ router.post('/edit-product/:id', (req, res) => {
                       }
                       
                       req.flash('success', 'Product edited!'); 
-                      res.redirect('/admin/products/edit-product/' +id);
+                      res.redirect('/admin/products/edit-product/'+id);
 
                       
                   });
