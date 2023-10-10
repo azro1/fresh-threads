@@ -68,7 +68,7 @@ mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnif
 
 const store = new mongoDbSession({
   uri: process.env.MONGO_ATLAS_STRING,
-  collection: 'gfCartSessions'
+  collection: 'sessions'
 })
 
 
