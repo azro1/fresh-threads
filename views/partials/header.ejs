@@ -45,26 +45,26 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
-            <% if (user && !user.admin == 1) { %>
+            <% if (user && user.admin !== 1) { %>
               <li>
                   <a href="/cart/checkout">My Cart (
-                    <% if (typeof cart !== "undefined") { %>
-                        <%= cart.length %>
-                    <% } else { %>
-                          0
-                    <% } %>
+                     <% if (typeof cart !== "undefined") { %>
+                         <%= cart.length %>
+                     <% } else { %>
+                           0
+                     <% } %>
                   )</a>
               </li>
               <li><a href="/users/logout">Hi, <%= user.username %> (LogOut)</a></li>
 
-              <% } else if (user && user.admin == 1) { %>
-                 <li><a href="/users/logout">Hi, <%= user.username %> (LogOut)</a></li>
-                 <li><a href="/admin/pages">Admin Area</a></li>
-                 
-              <% } else { %>
-                  <li><a href="/users/register">Register</a></li>
-                  <li><a href="/users/login">Login</a></li>
-              <% } %>
+            <% } else if (user && user.admin == 1) { %>
+                <li><a href="/users/logout">Hi, <%= user.username %> (LogOut)</a></li>
+                <li><a href="/admin/pages">Admin Area</a></li>
+                
+            <% } else { %>
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+            <% } %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
