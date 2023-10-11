@@ -48,11 +48,11 @@
             <% if (user && !user.admin == 1) { %>
               <li>
                   <a href="/cart/checkout">My Cart (
-                  <% if (typeof cart !== "undefined") { %>
-                      <%= cart.length %>
-                  <% } else { %>
-                        0
-                  <% } %>
+                    <% if (typeof cart !== "undefined") { %>
+                        <%= cart.length %>
+                    <% } else { %>
+                          0
+                    <% } %>
                   )</a>
               </li>
               <li><a href="/users/logout">Hi, <%= user.username %> (LogOut)</a></li>
