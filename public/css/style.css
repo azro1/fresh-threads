@@ -15,16 +15,6 @@
 }
 
 
-img.pimage {
-    width: 150px;
-}
-
-
-a.pa {
-    display: inline-block;
-}
-
-
 .row.products {
     display: grid !important;
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
@@ -37,13 +27,30 @@ a.pa {
 }
 
 
-.row .products .p:first-child {
+.row.products .p:first-child {
     grid-column-start: 1;
+}
+
+
+.row.products img.pimage {
+    width: 150px;
+}
+
+
+.row.products a.pa {
+    display: inline-block;
 }
 
 
 .row.products h3 {
     margin-top: 5px;
+    min-width: 200px;
+}
+
+
+.row.products a:last-child {
+    min-width: 100px !important;
+    display: block !important;
 }
 
 
