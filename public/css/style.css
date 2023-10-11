@@ -124,3 +124,15 @@ nav {
     padding: 20px 0;
     margin-bottom: 50px;
 }
+
+
+
+
+
+
+/* media queries */
+@media only screen and (max-width: 751px) {
+    .row.products {
+        text-align: center;
+    }
+}
