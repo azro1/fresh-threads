@@ -106,6 +106,7 @@ app.use(bodyParser.json());
 
 // Express Session middleware
 app.use(session({
+  name: 'elmathud',
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,

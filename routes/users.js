@@ -126,10 +126,14 @@ router.post('/login', (req, res, next) => {
 * GET logout
 */
 router.get('/logout', (req, res) => {
-
+    
     req.logout();
-
     req.flash('success', 'You are logged out!');
+
+    req.session.destroy(function(err) {
+        console.log('Destroyed session')
+     })
+
     res.redirect('/users/login');
 
 });
