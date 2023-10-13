@@ -111,7 +111,7 @@ router.get('/login', (req, res) => {
 * POST login
 */
 router.post('/login', (req, res, next) => {
-    console.log(req.session.isLoggedIn)
+    // console.log(req.session.isLoggedIn)
     req.session.isLoggedIn = true;
     
     passport.authenticate('local', {
@@ -136,7 +136,7 @@ router.get('/logout', (req, res) => {
         if (err) {
             console.log(err)
         }
-        console.log('Destroyed session')
+        // console.log('Destroyed session')
         res.redirect('/users/login');
      })
 
