@@ -3,10 +3,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const mongoDbSession = require('connect-mongodb-session')(session);
+const mongoDbStore = require('connect-mongodb-session')(session);
 const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
 const passport = require('passport');
+const csrf = require('csurf');
 require('dotenv').config()
 
 
@@ -16,6 +17,8 @@ require('dotenv').config()
 const Page = require('./models/page');
 // Get Category Model
 const Category = require('./models/category');
+// GET Users model
+const User = require('./models/user');
 
 
 
@@ -66,7 +69,12 @@ mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnif
 
 
 
-const store = new mongoDbSession({
+// csrf
+const csrfProtection = csrf();
+
+
+
+const store = new mongoDbStore({
   uri: process.env.MONGO_ATLAS_STRING,
   collection: 'sessions'
 })
@@ -106,12 +114,16 @@ app.use(bodyParser.json());
 
 // Express Session middleware
 app.use(session({
-  name: 'elmathud',
+  name: 'ftrends',
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
   store: store
 }));
+
+
+
+app.use(csrfProtection);
 
 
 
@@ -179,8 +191,12 @@ app.use(passport.session());
 app.get('*', (req, res, next) => {
     res.locals.cart = req.session.cart;
     res.locals.user = req.user || null;
+    res.locals.csrfToken = req.csrfToken();
     next();
 });
+
+
+
 
 
 

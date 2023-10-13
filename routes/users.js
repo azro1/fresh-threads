@@ -111,7 +111,9 @@ router.get('/login', (req, res) => {
 * POST login
 */
 router.post('/login', (req, res, next) => {
-
+    console.log(req.session.isLoggedIn)
+    req.session.isLoggedIn = true;
+    
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/users/login',
@@ -130,11 +132,15 @@ router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success', 'You are logged out!');
 
-    req.session.destroy(function(err) {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err)
+        }
         console.log('Destroyed session')
+        res.redirect('/users/login');
      })
 
-    res.redirect('/users/login');
+    
 
 });
 
