@@ -57,7 +57,6 @@
               </li>
               <li>
                 <a href="/users/logout">Hi, <%= user.username %> (LogOut)</a>
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
               </li>
 
             <% } else if (user && user.admin == 1) { %>
@@ -67,7 +66,6 @@
             <% } else { %>
                 <li><a href="/users/register">Register</a></li>
                 <li><a href="/users/login">Login</a></li>
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
             <% } %>
           </ul>
         </div><!--/.nav-collapse -->

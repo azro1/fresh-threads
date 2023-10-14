@@ -7,7 +7,6 @@ const mongoDbStore = require('connect-mongodb-session')(session);
 const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
 const passport = require('passport');
-const csrf = require('csurf');
 require('dotenv').config()
 
 
@@ -17,8 +16,7 @@ require('dotenv').config()
 const Page = require('./models/page');
 // Get Category Model
 const Category = require('./models/category');
-// GET Users model
-const User = require('./models/user');
+
 
 
 
@@ -41,6 +39,7 @@ mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnif
   app.listen(PORT, () => {
     console.log('Server started on port ' + PORT);
 
+  
     if (result) {
       // Get all pages to pass to header.ejs
       Page.find({})
@@ -66,11 +65,6 @@ mongoose.connect(process.env.MONGO_ATLAS_STRING, {useNewUrlParser: true, useUnif
 })
 .catch((err) => console.log(err))
 
-
-
-
-// csrf
-const csrfProtection = csrf();
 
 
 
@@ -118,12 +112,10 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: store
+  store: store,
+  cookie: { maxAge: 60 * 60 * 1000 }
 }));
 
-
-
-app.use(csrfProtection);
 
 
 
@@ -167,6 +159,7 @@ app.use(expressValidator({
 
 
 
+
 // Express Messages middleware
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
@@ -187,11 +180,12 @@ app.use(passport.session());
 
 
 
+
 // make the cart session array available in each get request
 app.get('*', (req, res, next) => {
-    res.locals.cart = req.session.cart;
     res.locals.user = req.user || null;
-    res.locals.csrfToken = req.csrfToken();
+    res.locals.session = req.session;
+    res.locals.cart = req.session.cart;
     next();
 });
 

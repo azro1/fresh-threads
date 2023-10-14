@@ -4,6 +4,7 @@ const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
 
+
 // GET Users model
 const User = require('../models/user');
 
@@ -131,16 +132,14 @@ router.get('/logout', (req, res) => {
     
     req.logout();
     req.flash('success', 'You are logged out!');
+    res.redirect('/users/login');
 
-    req.session.destroy((err) => {
-        if (err) {
-            console.log(err)
-        }
-        // console.log('Destroyed session')
-        res.redirect('/users/login');
-     })
-
-    
+    // req.session.destroy((err) => {
+    //     if (err) {
+    //         console.log(err)
+    //     }
+    //     // console.log('Destroyed session')
+    //  })
 
 });
 
