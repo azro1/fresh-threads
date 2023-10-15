@@ -1,13 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
 
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+nav {
+    padding: 20px 0;
+    margin-bottom: 50px;
 }
 
 
 a {
     color: #101010;
+    font-size: 16px;
+}
+
+
+p {
+    font-weight: 400;
+    font-size: 16px;
 }
 
 
@@ -56,6 +70,11 @@ a:hover  {
 .row.products h3 {
     margin-top: 5px;
     min-width: 200px;
+    font-weight: 500;
+}
+
+h4 {
+    font-weight: 500;
 }
 
 
@@ -136,17 +155,18 @@ table.alignmiddle td {
     border-color: #ebccd1;
 }
 
-nav {
-    padding: 20px 0;
-    margin-bottom: 50px;
-}
-
 
 
 
 
 
 /* media queries */
+@media only screen and (max-width: 993px) {
+    .categories {
+        margin-bottom: 50px;
+    }
+}
+
 @media only screen and (max-width: 751px) {
     .row.products {
         text-align: center;

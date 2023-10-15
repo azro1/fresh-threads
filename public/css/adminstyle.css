@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
 
 
+nav {
+    padding: 20px 0;
+    margin-bottom: 50px;
+}
+
+
 .navbar-brand {
     font-family: 'Joti One', cursive;
     color: #FF1493 !important;
@@ -72,9 +78,4 @@ a.btn, button.btn {
 
 a.btn {
     padding-bottom: 10px;
-}
-
-nav {
-    padding: 20px 0;
-    margin-bottom: 50px;
 }
