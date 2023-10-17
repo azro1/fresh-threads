@@ -18,6 +18,31 @@ nav {
 }
 
 
+.navbar-brand {
+    font-family: 'Joti One', cursive;
+    color: #E4C16D !important;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 0.3;
+}
+
+
+.navbar-inverse ul:last-child li:first-child a {
+    margin-right: 5px;
+}
+
+
+.navbar-inverse ul:last-child li i {
+    color: #E4C16D;
+}
+
+
+.navbar-inverse ul:last-child a span {
+    position: relative;
+    top: -7px;
+}
+
+
 a {
     color: #101010;
     font-size: 16px;
@@ -36,15 +61,6 @@ p.home {
 
 a:hover  {
     color: #337ab7;
-}
-
-
-.navbar-brand {
-    font-family: 'Joti One', cursive;
-    color: #FF1493 !important;
-    font-size: 6rem;
-    font-weight: 700;
-    line-height: 0.3;
 }
 
 
@@ -174,6 +190,13 @@ table.alignmiddle td {
         margin-bottom: 50px;
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .navbar-brand {
+        line-height: 0.1;
+    }
+}
+
 
 @media only screen and (max-width: 751px) {
     .row.products {
