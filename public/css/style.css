@@ -192,11 +192,15 @@ table.alignmiddle td {
 }
 
 @media only screen and (max-width: 767px) {
-    .navbar-brand {
-        line-height: 0.1;
+    .navbar-header button {
+        margin-bottom: 20px;
+        background: #E4C16D;
+    }
+
+    .navbar-inverse .navbar-toggle:hover {
+        background: #E4C16D;
     }
 }
-
 
 @media only screen and (max-width: 751px) {
     .row.products {
