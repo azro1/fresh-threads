@@ -9,20 +9,20 @@
 <form method="POST" action="/admin/products/edit-product/<%= id %>" enctype="multipart/form-data">
  
    <div class="form-group">
-     <label for="">Title</label>
-     <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+     <label for="title">Title</label>
+     <input type="text" class="form-control" id="title" name="title" value="<%= title %>" placeholder="Title">
    </div>
     
     
    <div class="form-group">
-     <label for="">Description</label>
-     <textarea name="desc" class="form-control" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
+     <label for="desc">Description</label>
+     <textarea name="desc" id="desc" class="form-control" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
    </div>
    
   
    <div class="form-group">
-     <label for="">Category</label>
-     <select name="category" class="form-control">
+     <label for="category">Category</label>
+     <select name="category" id="category" class="form-control">
          <% categories.forEach(function(cat) { %>
             <option value="<%= cat.slug %>">
               <%= cat.title %>
@@ -33,13 +33,13 @@
    
     
    <div class="form-group">
-     <label for="">Price</label>
-     <input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+     <label for="price">Price</label>
+     <input type="text" class="form-control" id="price" name="price" value="<%= price %>" placeholder="Price">
    </div>
    
    
     <div class="form-group">
-     <label for="">Current Image</label>
+     <span class="noimage">Current Image</span>
      <p>
          <% if (image == "") { %>
            <img id="noimage" src="/images/noimage.png" alt="">
@@ -51,7 +51,7 @@
    
    
     <div class="form-group">
-     <label for="">Upload Image</label>
+     <label for="img">Upload Image</label>
      <input type="file" class="form-control" name="image" id="img">
      <img src="#" id="imgPreview" alt="">
    </div>

@@ -50,27 +50,31 @@
 
             <% if (user && !user.admin == 1) { %>
               <li>
-                <a style="padding:10px" href="/cart/checkout">
+                <a id="user-links" href="/cart/checkout">
                     <% if (typeof cart !== "undefined") { %>
-                      <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                      <i class="fa-solid fa-cart-shopping"></i>
                       <span><%= cart.length %></span>
                     <% } else { %>
-                      <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                      <i class="fa-solid fa-cart-shopping"></i>
                       <span>0</span>
                     <% } %>
                 </a>
               </li>
               <li>
-                <a href="/users/logout">Hi, <%= user.username %> (LogOut)</a>
+                <span>Hi, <%= user.username %></span>
+                <a href="/users/logout">Logout</a>
               </li>
 
             <% } else if (user && user.admin == 1) { %>
-                <li><a href="/users/logout" style="margin-right:unset">Hi, <%= user.username %> (Logout)</a></li>
-                <li><a href="/admin/pages">Admin Area</a></li>
+                <li class="admin-links">
+                  <span>Hi, <%= user.username %></span>
+                  <a href="/users/logout">Logout</a></li>
+                <li>
+                <a class="adminarea" href="/admin/pages">Admin Area</a></li>
                 
             <% } else { %>
-                <li><a href="/users/register">Register</a></li>
-                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register" style="margin-right:unset;" >Register</a></li>
+                <li><a style="top:2px" href="/users/login">Login</a></li>
             <% } %>
           </ul>
         </div><!--/.nav-collapse -->

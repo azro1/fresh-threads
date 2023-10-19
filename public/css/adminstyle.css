@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
 
-
 nav {
     padding: 20px 0;
     margin-bottom: 50px;
 }
-
 
 .navbar-brand {
     font-family: 'Joti One', cursive;
@@ -14,37 +12,37 @@ nav {
     font-weight: 700;
     line-height: 0.3;
 }
-  
 
 tr:not(.home) {
     cursor: pointer;
 }
 
-
 .ui-state-highlight {
     border: 1px dashed #ccc;
 }
-
 
 #imgPreview {
     margin: 20px;
 }
 
-
 .table-container {
     overflow-x: auto;
 }
-
 
 .table-container table tr th {
     white-space: nowrap;
 }
 
-
 table.alignmiddle td {
     vertical-align: middle !important;
 }
 
+span.noimage, span.category {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
 
 #noimage {
     image-rendering: auto;
@@ -53,16 +51,13 @@ table.alignmiddle td {
     height: 90px;
 }
 
-
 ul.gallery {
     padding: 0;
 }
 
-
 ul.gallery li:first-child {
     margin-left: 0;
 }
-
 
 ul.gallery li {
     margin: 20px;
@@ -70,11 +65,10 @@ ul.gallery li {
     list-style: none;
 }
 
-
-a.btn, button.btn {
+a.btn,
+button.btn {
     padding-top: 9px;
 }
-
 
 a.btn {
     padding-bottom: 10px;
