@@ -10,22 +10,26 @@ a {
     font-size: 16px;
 }
 
+a:hover  {
+    color: #337ab7;
+}
+
 p {
     font-weight: 400;
     font-size: 16px;
 }
 
+
+/* ckeditor styles */
 p.home {
     margin-top: 16px;
-}
-
-a:hover  {
-    color: #337ab7;
 }
 
 h1.home, h2 {
   margin-bottom: 20px;
 }
+/* ckeditor styles */
+
 
 nav {
     padding: 20px 0;
@@ -34,13 +38,14 @@ nav {
 
 .navbar-brand {
     font-family: 'Joti One', cursive;
-    color: #DAA520 !important;
+    color: #BDB76B !important;
     font-size: 6rem;
     font-weight: 700;
     line-height: 0.3;
 }
 
-/* user links large screen */
+
+/* user links large screen (header.ejs) */
 .navbar-inverse ul:last-child a#user-links {
     margin-right: 10px;
     padding:5px 10px; 
@@ -64,7 +69,7 @@ nav {
 }
 
 .navbar-inverse ul:last-child li:nth-of-type(2) span {
-    color: #DAA520; 
+    color: #BDB76B; 
     font-size: 16px;
 }
 
@@ -72,14 +77,15 @@ nav {
     display: inline;
 }
 
-/* admin links large screen */
+
+/* admin links large screen (header.ejs) */
 .admin-links {
     position: relative;
     top:14px;
 }
 
 .admin-links span {
-    color: #DAA520; 
+    color: #BDB76B; 
     font-size: 16px;
     margin-right: 10px;
 }
@@ -92,6 +98,16 @@ nav {
 .adminarea {
     top: 2px; 
     padding-left:0 !important;
+}
+
+
+/* no user links large screen (header.ejs) */
+.navbar-inverse ul:last-child li#no-user-links:first-child a {
+    margin-right: unset;
+}
+
+.navbar-inverse ul:last-child li#no-user-links:last-child a {
+    top: 2px;
 }
 
 
@@ -198,6 +214,11 @@ table.alignmiddle td {
     border-color: #ebccd1;
 }
 
+
+
+
+
+
 /* media queries */
 @media only screen and (max-width: 993px) {
     .categories {
@@ -208,11 +229,11 @@ table.alignmiddle td {
 @media only screen and (max-width: 767px) {
     .navbar-header button {
         margin-bottom: 20px;
-        background: #DAA520;
+        background: #BDB76B;
     }
 
     .navbar-inverse .navbar-toggle:hover {
-        background: #DAA520;
+        background: #BDB76B;
     }
 
     /* user links  */
@@ -249,6 +270,15 @@ table.alignmiddle td {
 
     .adminarea {
         padding: 10px 0 0 15px !important;
+    }
+
+    /* no user links */
+    .navbar-inverse ul:last-child li#no-user-links a {
+        padding-top: 2px;       
+    }
+
+    .navbar-inverse ul:last-child li#no-user-links:last-child a {
+        padding-top: 7px;       
     }
 }
 
