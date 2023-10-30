@@ -18,6 +18,7 @@
     "connect-mongo": "^5.0.0",
     "connect-mongodb-session": "^3.1.1",
     "core-js": "^3.33.0",
+    "csurf": "^1.11.0",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.5",
     "express": "^4.17.1",

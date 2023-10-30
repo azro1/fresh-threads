@@ -60,7 +60,8 @@
   
   <input type="hidden" name="pimage" value="<%= image %>">
   <button class="btn btn-default">Submit</button>
-    
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
 </form>
 
 
@@ -83,6 +84,7 @@
     <div class="fallback">
         <input type="file" name="file" multiple>
         <input type="submit" value="Upload">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     </div>
 </form>
 
@@ -125,8 +127,6 @@
             });
         }
     }
-    
-    
     
 
 </script>

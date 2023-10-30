@@ -44,7 +44,12 @@ router.get('/add-category', isAdmin, (req, res) => {
 /*
 *  POST add category
 */
-router.post('/add-category', (req, res) => {
+router.post('/add-category', (req, res) => { 
+  
+  if (req.session.csrfToken !== req.body.csrfToken) {
+    res.sendStatus(401)
+    return
+  }
     
   // Validate title and content using express validator 
   req.checkBody('title', 'Title must have a value.').notEmpty(); 

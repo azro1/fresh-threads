@@ -111,9 +111,9 @@ router.get('/login', (req, res) => {
 /*
 * POST login
 */
-router.post('/login', (req, res, next) => {
-    req.session.isLoggedIn = true;
-    
+router.post('/login', (req, res, next) => {  
+    console.log("Form:", req.body, "Session:", req.session)
+
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/users/login',
@@ -128,11 +128,9 @@ router.post('/login', (req, res, next) => {
 * GET logout
 */
 router.get('/logout', (req, res) => {
-    
     req.logout();
     req.flash('success', 'You are logged out!');
     res.redirect('/users/login');
-
 });
 
 

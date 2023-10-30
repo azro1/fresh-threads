@@ -8,6 +8,11 @@ const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
 const passport = require('passport');
 require('dotenv').config()
+const csrf = require('csurf')
+
+
+
+
 
 
 
@@ -72,7 +77,7 @@ const store = new mongoDbStore({
   uri: process.env.MONGO_ATLAS_STRING,
   collection: 'sessions'
 })
-
+const csrfProtection = csrf();
 
 
 // Set view engine
@@ -108,14 +113,17 @@ app.use(bodyParser.json());
 
 // Express Session middleware
 app.use(session({
-  name: 'ftrends',
-  secret: 'keyboard cat',
+  name: 'fresh_trends',
+  secret: 'ileocolonic anastamosis',
   resave: false,
   saveUninitialized: false,
   store: store,
-  cookie: { maxAge: 60 * 60 * 1000 }
+  cookie: {
+    maxAge: null,
+    sameSite: true
+  }
 }));
-
+app.use(csrfProtection)
 
 
 
@@ -181,8 +189,11 @@ app.use(passport.session());
 
 
 
-// make the cart session array available in each get request
+// set global variables that can now be accessed in all views
 app.get('*', (req, res, next) => {
+    if (req.user) {
+      req.session.isLoggedIn = true;
+    } 
     res.locals.user = req.user || null;
     res.locals.session = req.session;
     res.locals.cart = req.session.cart;
@@ -191,7 +202,10 @@ app.get('*', (req, res, next) => {
 
 
 
-
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+})
 
 
 

@@ -3,7 +3,6 @@
 
 <h1><%= title %></h1><br>
 
-
 <form method="post" action="/users/login">
 
 <div class="form-group">
@@ -17,6 +16,7 @@
 </div><br>
 
 <button type="submit" class="btn btn-primary">Login</button>
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
 </form>
 
